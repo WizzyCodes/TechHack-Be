@@ -32,6 +32,12 @@ const userModel = new Schema<iUserData>(
       type: Boolean,
       default: false,
     },
+    otp: {
+      type: String,
+    },
+    otpExpiresAt: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

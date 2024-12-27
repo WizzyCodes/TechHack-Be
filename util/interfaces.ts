@@ -10,6 +10,8 @@ interface iUser {
   avatarID: string;
   Verified: boolean;
   verifiedToken: string;
+  otp: string;
+  otpExpiresAt: string;
 }
 
 export interface iUserData extends iUser, Document {}
