@@ -7,7 +7,7 @@ export const main = async (app: Application) => {
     app.get("/", (req: Request, res: Response): any => {
       try {
         return res.status(200).json({
-          message: "Welcome To Praise Tech Challenge",
+          message: "Welcome To Wisdom's Tech-Hack Challenge",
         });
       } catch (error) {
         res.status(404).json({
