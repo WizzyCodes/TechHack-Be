@@ -6,6 +6,8 @@ var __importDefault =
   };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const path = require("path");
+
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const main_1 = require("./main");
