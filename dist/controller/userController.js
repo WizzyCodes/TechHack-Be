@@ -48,7 +48,7 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         (0, removeUploadFIles_1.removeUploadFile)(folderPath);
         (0, email_1.createAccountEmail)(user);
         return res.status(201).json({
-            message: "Your account has been created successfully",
+            message: "Your account has been created successfully, An email has been sent to you, pls check your inbox and verify your account so you can continue to enjoy our sevices",
             data: user,
             status: 201,
         });

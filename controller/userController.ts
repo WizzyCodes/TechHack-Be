@@ -43,7 +43,8 @@ export const createUser = async (
     createAccountEmail(user);
 
     return res.status(201).json({
-      message: "Your account has been created successfully",
+      message:
+        "Your account has been created successfully, An email has been sent to you, pls check your inbox and verify your account so you can continue to enjoy our sevices",
       data: user,
       status: 201,
     });
