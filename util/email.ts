@@ -39,7 +39,7 @@ export const createAccountEmail = async (user: any) => {
   const mailData = {
     to: user?.email,
     from: `${process.env.GOOGLE_MAIL}`,
-    subject: "",
+    subject: "Account Creation Verification",
     text: "This is just a test message",
     html,
   };

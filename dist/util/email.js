@@ -49,7 +49,7 @@ const createAccountEmail = (user) => __awaiter(void 0, void 0, void 0, function*
     const mailData = {
         to: user === null || user === void 0 ? void 0 : user.email,
         from: `${process.env.GOOGLE_MAIL}`,
-        subject: "",
+        subject: "Account Creation Verification",
         text: "This is just a test message",
         html,
     };
