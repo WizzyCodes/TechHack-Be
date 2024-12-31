@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
+import jwt from "jsonwebtoken";
 import env from "dotenv";
 env.config();
 import ejs from "ejs";
@@ -28,7 +29,12 @@ export const createAccountEmail = async (user: any) => {
   });
 
   const pathFile = path.join(__dirname, "../views/otp.ejs");
-  let verificationURL = `http://localhost:10000/api/user/verify-account/${user?._id}`;
+  const token: any = jwt.sign(
+    { id: user._id },
+    process.env.JWT_SECRET as string,
+    { expiresIn: process.env.JWT_EXPIRES }
+  );
+  let verificationURL = `https://tech-hack-challenge.web.app/auth/login/${token}`;
   const html = await ejs.renderFile(pathFile, {
     name: user?.email,
     url: verificationURL,

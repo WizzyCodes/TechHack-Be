@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createAccountEmail = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
 const googleapis_1 = require("googleapis");
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const ejs_1 = __importDefault(require("ejs"));
@@ -39,7 +40,8 @@ const createAccountEmail = (user) => __awaiter(void 0, void 0, void 0, function*
         },
     });
     const pathFile = node_path_1.default.join(__dirname, "../views/otp.ejs");
-    let verificationURL = `http://localhost:10000/api/user/verify-account/${user === null || user === void 0 ? void 0 : user._id}`;
+    const token = jsonwebtoken_1.default.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES });
+    let verificationURL = `https://tech-hack-challenge.web.app/auth/login/${token}`;
     const html = yield ejs_1.default.renderFile(pathFile, {
         name: user === null || user === void 0 ? void 0 : user.email,
         url: verificationURL,
