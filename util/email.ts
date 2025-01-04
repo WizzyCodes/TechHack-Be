@@ -34,7 +34,7 @@ export const createAccountEmail = async (user: any) => {
     process.env.JWT_SECRET as string,
     { expiresIn: process.env.JWT_EXPIRES }
   );
-  let verificationURL = `https://tech-hack-challenge.web.app/auth/login/${token}`;
+  let verificationURL = `https://tech-hack-challenge.web.app/auth/otp/${token}`;
   const html = await ejs.renderFile(pathFile, {
     name: user?.email,
     url: verificationURL,

@@ -41,7 +41,7 @@ const createAccountEmail = (user) => __awaiter(void 0, void 0, void 0, function*
     });
     const pathFile = node_path_1.default.join(__dirname, "../views/otp.ejs");
     const token = jsonwebtoken_1.default.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES });
-    let verificationURL = `https://tech-hack-challenge.web.app/auth/login/${token}`;
+    let verificationURL = `https://tech-hack-challenge.web.app/auth/otp/${token}`;
     const html = yield ejs_1.default.renderFile(pathFile, {
         name: user === null || user === void 0 ? void 0 : user.email,
         url: verificationURL,
