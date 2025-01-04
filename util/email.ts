@@ -29,12 +29,13 @@ export const createAccountEmail = async (user: any) => {
   });
 
   const pathFile = path.join(__dirname, "../views/otp.ejs");
-  const token: any = jwt.sign(
-    { id: user._id },
-    process.env.JWT_SECRET as string,
-    { expiresIn: process.env.JWT_EXPIRES }
-  );
-  let verificationURL = `https://tech-hack-challenge.web.app/auth/otp/${token}`;
+  // const token: any = jwt.sign(
+  //   { id: user._id },
+  //   process.env.JWT_SECRET as string,
+  //   { expiresIn: process.env.JWT_EXPIRES }
+  // );
+  const id = user._id;
+  let verificationURL = `https://tech-hack-challenge.web.app/auth/otp/${id}`;
   const html = await ejs.renderFile(pathFile, {
     name: user?.email,
     url: verificationURL,
