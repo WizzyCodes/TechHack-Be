@@ -6,5 +6,5 @@ const multer_1 = require("../util/multer");
 const userRouter = (0, express_1.Router)();
 userRouter.route("/create-user").post(multer_1.upload, userController_1.createUser);
 userRouter.route("/login-user").post(userController_1.logInUser);
-userRouter.route("/verify-account/:userID").get(userController_1.verifyUserAccount);
+userRouter.route("/verify-account/:userID").post(userController_1.verifyUserAccount);
 exports.default = userRouter;

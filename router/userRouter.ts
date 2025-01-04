@@ -9,6 +9,6 @@ const userRouter: any = Router();
 
 userRouter.route("/create-user").post(upload, createUser);
 userRouter.route("/login-user").post(logInUser);
-userRouter.route("/verify-account/:userID").get(verifyUserAccount);
+userRouter.route("/verify-account/:userID").post(verifyUserAccount);
 
 export default userRouter;
