@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && xcopy \"views\" \"dist\\views\" /E /I",
+    "build": "tsc && node copyViews.js",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn index.ts"
   },
